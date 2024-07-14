@@ -20,6 +20,7 @@
 
 // console.log('userDataVoyage', userDataVoyage , typeof userDataVoyage);
 
+
 //2)Chiedere all'utente l'età
 // const userDataAge = parseInt('Inserisci la tua età');
 
@@ -64,3 +65,41 @@
 //     se l'utente non inserisce un numero nel campo Km
 //     alert('Devi inserire i chilometri');
 // }
+const clickButton = document.getElementById('click-button');
+
+clickButton.addEventListener('submit', 
+    function() {
+        // 1)Chiedere all'utente il numero di km che vuole percorrere
+
+        const userDataVoyage = parseInt(document.getElementById(userDataVoyage).value);
+
+        console.log('userDataVoyage', userDataVoyage , typeof userDataVoyage);
+        if(userDataVoyage){
+            const price = 0.21 * userDataVoyage;
+        }
+
+        //2)Chiedere all'utente l'età
+        const userDataAge = parseInt(document.getElementById(userDataAge).value);
+
+        console.log('userDataAge', userDataAge , typeof userDataAge);
+
+        if( userDataAge < 18){
+            //applico uno sconto del 20%
+            const price = 0.21 * userDataVoyage;
+            const discount = price * 0.20;
+            const priceTotal = price - discount;
+        
+            document.querySelector('h4').innerHTML = 'Il Prezzo del biglietto è: €' + priceTotal.toFixed(2);
+        }    
+        
+        else if( userDataAge >= 65){
+            //gli applico uno sconto del 40%
+            const price = 0.21 * userDataVoyage;
+            const discount = price * 0.40;
+            const priceTotal = price - discount;
+        
+            document.querySelector('h4').innerHTML = 'Il Prezzo del biglietto è: €' + priceTotal.toFixed(2);
+        }
+        console.log("userDataVoyage: " + userDataVoyage + " | userDataAge: " + userDataAge + " | name: " + name );
+    }
+);
